@@ -1,0 +1,21 @@
+{
+  "hosting": {
+    "public": "dist",
+    "ignore": [
+      "firebase.json",
+      "**/.*",
+      "**/node_modules/**"
+    ],
+    "rewrites": [{
+      "source": "**",
+      "destination": "/app.html"
+    }],
+    "headers": [{
+      "source" : "offline-support.js",
+      "headers" : [ {
+        "key" : "Cache-Control",
+        "value" : "private, max-age=0, no-cache"
+      }]
+    }]
+  }
+}

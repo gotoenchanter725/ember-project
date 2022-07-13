@@ -1,0 +1,58 @@
+{{#side-menu}}
+  <header class="navbar navbar-default">
+    <div class="navbar-header">
+      {{#side-menu-link-to "index" class="navbar-brand" title="SplittyPie Home Page"}}
+        {{partial "shared/brand"}}
+      {{/side-menu-link-to}}
+    </div>
+  </header>
+  <div class="content">
+    <ul class="nav">
+      <li class="header">Events</li>
+      {{#each model.previousEvents as |event|}}
+        <li>
+          {{#side-menu-link-to "event" event.id}}
+            {{inline-svg "calendar" class="icon"}}
+            {{event.name}}
+          {{/side-menu-link-to}}
+        </li>
+      {{/each}}
+      <li>
+        {{#side-menu-link-to "new"}}
+          {{inline-svg "plus" class="icon"}}
+          New Event
+        {{/side-menu-link-to}}
+      </li>
+      <li class="divider"></li>
+      <li>
+        <a href="https://github.com/cowbell/splittypie" target="_blank" rel="noopener">
+          {{inline-svg "github" class="icon"}}
+          Source Code
+        </a>
+      </li>
+      <li>
+        <a href="https://cowbell-labs.com/" target="_blank" rel="noopener">
+          {{inline-svg "cowbell" class="icon cowbell"}}
+          Cowbell Labs
+        </a>
+      </li>
+    </ul>
+    <div class="version">
+      <p>ver. {{app-version}}</p>
+    </div>
+  </div>
+{{/side-menu}}
+{{content-backdrop}}
+<div class="page-content">
+  {{partial "shared/navbar"}}
+
+  <main>
+    <div class="container">
+      {{outlet}}
+    </div>
+  </main>
+
+  {{outlet "footer"}}
+  {{ember-notify messageStyle="bootstrap" }}
+</div>
+{{outlet "modal"}}

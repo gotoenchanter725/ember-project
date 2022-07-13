@@ -1,0 +1,16 @@
+{
+  "env": {
+    "embertest": true
+  },
+
+  "globals": {
+    "waitForPromise": true,
+    "reloadPage": true,
+    "exist": true,
+    "identifyUserAs": true,
+    "runWithTestData": true,
+    "setEventAsViewed": true,
+    "runAndWaitForSyncQueueToFlush": true,
+    "simulateDelay": true
+  }
+}

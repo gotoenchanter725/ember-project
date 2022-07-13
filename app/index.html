@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Splittypie</title>
+
+    <meta name="description" content="SplittyPie is a free app that helps you with sharing expenses with your friends. It's offline enable and mobile friendly, you can use it everywhere.">
+    <meta name="keywords" content="expense, expenses, tracking, track, share, offline, mobile, friends, events, trip, trips">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#ffffff">
+    <link rel="icon" type="image/png" href="{{rootURL}}assets/icons/icon.png">
+
+    <!-- Web Application Manifest -->
+    <link rel="manifest" href="/manifest.json">
+
+    <link rel="apple-touch-icon" href="{{rootURL}}assets/icons/ios/icon-60x60.png">
+    <link rel="apple-touch-icon" sizes="76x76" href="{{rootURL}}assets/icons/ios/icon-76x76.png">
+    <link rel="apple-touch-icon" sizes="120x120" href="{{rootURL}}assets/icons/ios/icon-120x120.png">
+    <link rel="apple-touch-iconca" sizes="152x152" href="{{rootURL}}assets/icons/ios/icon-152x152.png">
+
+    <meta name="mobile-web-app-capable" content="yes">
+    <!-- Unfortunately this doesn't work on iOs9 ugh, wtf apple? -->
+    <link rel="apple-touch-startup-image" href="{{rootURL}}assets/icons/ios/startup.png">
+
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+
+    {{content-for "last-event"}}
+    {{content-for "head"}}
+
+    <link integrity="" rel="stylesheet" href="{{rootURL}}assets/vendor.css">
+    <link integrity="" rel="stylesheet" href="{{rootURL}}assets/splittypie.css">
+    {{content-for "analytics"}}
+    {{content-for "rollbar"}}
+    {{content-for "head-footer"}}
+  </head>
+  <body>
+    <noscript>
+      SplittyPie requires JavaScript to be enabled.
+    </noscript>
+
+    {{content-for "ember-index-index-preload"}}
+    {{content-for "ember-index-app-preload"}}
+
+    {{content-for "body"}}
+
+    <script src="{{rootURL}}assets/vendor.js"></script>
+    <script src="{{rootURL}}assets/splittypie.js"></script>
+
+    {{content-for "body-footer"}}
+  </body>
+</html>

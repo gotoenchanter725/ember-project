@@ -1,0 +1,112 @@
+@import url("https://fonts.googleapis.com/css?family=Give+You+Glory");
+
+// Core variables and mixins
+@import "vendor/bootstrap-paper/_variables";
+@import "bootstrap";
+@import "vendor/bootstrap-paper/_bootswatch";
+@import "ember-side-menu";
+
+@import "core/buttons";
+@import "core/icons";
+
+// routes templates
+@import "templates/index";
+@import "templates/event";
+
+// components styles
+@import "components/calendar-page";
+@import "components/ember-notify";
+@import "components/event-url";
+@import "components/mobile-toolbar";
+@import "components/previous-events";
+@import "components/settlement-transfer-list";
+@import "components/side-menu";
+@import "components/switch-event-dropdown";
+@import "components/transaction-list";
+@import "components/transaction-list-header";
+@import "components/transaction-list-item";
+@import "components/user-balance-list";
+@import "components/user-balance-list-item";
+
+body, html {
+  height: 100%;
+}
+
+main {
+  padding-bottom: 70px;
+}
+
+footer {
+  height: 50px;
+  margin-top: -50px;
+}
+
+.pull-up-30 {
+  margin-top: -30px;
+}
+
+.red-text {
+  color: red;
+}
+
+.flex {
+  flex: 1;
+}
+
+.page-content {
+  padding-top: 80px;
+}
+
+.no-borders {
+  box-shadow: none;
+}
+
+table.no-border {
+  td {
+    border-top: none !important;
+  }
+}
+
+/* fixing liquid-fire outlet issue with left and right border shadow */
+.liquid-child {
+  padding: 4px; //extra room for shadows to display
+}
+
+.container {
+  max-width: 800px;
+
+  @media (max-width: $screen-sm-min) {
+    padding-right: 5px;
+    padding-left: 5px;
+  }
+}
+
+.navbar {
+  .container {
+    display: flex;
+    align-items: center;
+  }
+
+  .navbar-header {
+    flex: 1;
+  }
+
+  .btn, .navbar-btn {
+    margin-top: 0px;
+    margin-bottom: 0px;
+  }
+
+  ul.nav {
+    li, li.active {
+      a,
+      a:focus,
+      a:hover {
+        background: none;
+      }
+    }
+
+    li.active {
+      font-weight: bold;
+    }
+  }
+}

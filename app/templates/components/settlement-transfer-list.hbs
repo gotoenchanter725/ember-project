@@ -1,0 +1,23 @@
+<h4>How to settle all debts?</h4>
+
+{{#if anyTransfers}}
+  <div class="panel panel-default">
+    <div class="panel-body">
+      {{#each transfers as |transfer|}}
+        <li class="settlement-item">
+          <strong>{{transfer.sender.name}}</strong> owes <strong>{{transfer.recipient.name}}</strong>
+          <span class="text-nowrap">
+            {{format-money transfer.amount symbol=transfer.currency.code format="%v %s"}}
+          </span>
+          <button class="btn btn-sm btn-success" {{action (action settleUp transfer)}}>
+            Settle Up!
+          </button>
+        </li>
+      {{/each}}
+    </div>
+  </div>
+{{else}}
+  <div class="alert alert-info" role="alert">
+    There is no need to settle anything.
+  </div>
+{{/if}}

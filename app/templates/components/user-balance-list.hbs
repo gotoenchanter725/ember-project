@@ -1,0 +1,15 @@
+{{#if anyUsers}}
+  <h4>Individual balance</h4>
+
+  <div class="panel panel-default">
+    <div class="panel-body">
+      <table class="table table-hover no-border user-balance-list" role="presentation">
+        <tbody>
+          {{#each sortedUsers as |user|}}
+            {{user-balance-list-item user=user}}
+          {{/each}}
+        </tbody>
+      </table>
+    </div>
+  </div>
+{{/if}}

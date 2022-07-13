@@ -1,0 +1,8 @@
+<td>
+  <strong>{{user.name}}</strong>
+</td>
+<td align="right">
+  <span class="label {{if isPositive "label-success" "label-danger"}}">
+    {{format-money user.balance symbol=user.event.currency.code format="%v %s"}}
+  </span>
+</td>

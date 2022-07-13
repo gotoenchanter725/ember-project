@@ -1,0 +1,50 @@
+{{#mobile-toolbar class="no-borders"}}
+  {{side-menu-toggle-custom}}
+  <span class="navbar-brand">{{model.name}}</span>
+  <button {{action "share"}} class="navbar-btn btn btn-link" aria-label="Share With Others">
+    {{inline-svg "share" class="icon"}}
+  </button>
+  {{#link-to "event.edit" class="navbar-btn btn btn-link" title="Edit Event"}}
+    {{inline-svg "edit" class="icon"}}
+  {{/link-to}}
+  {{switch-user-dropdown selected=userContext.currentUser users=model.users onChange=(route-action "switchUser") iconOnly=true class="navbar-btn btn btn-link"}}
+{{/mobile-toolbar}}
+
+{{#ember-wormhole to="navbar-right"}}
+  <div class="nav navbar-nav navbar-right">
+    {{switch-user-dropdown selected=userContext.currentUser users=model.users onChange=(route-action "switchUser") class="navbar-btn"}}
+  </div>
+{{/ember-wormhole}}
+
+<div class="row hidden-xs">
+  <div class="col-md-12">
+    <div class="pull-left">
+      {{switch-event-dropdown selected=model events=events}}
+    </div>
+
+    <div class="pull-right">
+      <button {{action "share"}} class="btn btn-link btn-lg">
+        {{inline-svg "share" class="icon"}} Share
+      </button>
+
+      {{#link-to "event.edit" class="btn btn-link btn-lg"}}
+        {{inline-svg "edit" class="icon"}} Edit
+      {{/link-to}}
+    </div>
+  </div>
+</div>
+
+<ul class="nav nav-tabs">
+  {{#nav-link-to "event.index" title="Overview"}}Overview{{/nav-link-to}}
+  {{#nav-link-to "event.transactions" title="Transactions"}}Transactions{{/nav-link-to}}
+</ul>
+
+{{#if isMobile}}
+  <div class="event-container">
+    {{outlet}}
+  </div>
+{{else}}
+  {{liquid-outlet class="event-container"}}
+{{/if}}
+
+{{add-transaction-button event=model onClick=(route-action "showQuickAdd")}}
